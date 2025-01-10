@@ -1,0 +1,31 @@
+{% include'UserHeader.html' %}
+
+<h1 style="color: white">ORPHANS</h1>
+<table class="table" style="width: 1170px;color: white">
+	<tr>
+		<th>Orphanage ID</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Date Of Birth</th>
+		<th>Age</th>
+		<th>Gender</th>
+		<th>Description</th>
+	</tr>
+	{%for row in data['or']%}
+	<tr>
+		<td>{{row['orphanage_id']}}</td>
+		<td>{{row['first_name']}}</td>
+		<td>{{row['last_name']}}</td>
+		<td>{{row['dob']}}</td>
+		<td>{{row['orphan_image']}}</td>
+		<td>{{row['gender']}}</td>
+		<td>{{row['about_description']}}</td>
+		<!-- <td><a href="SendAdoptionRequest?orphan_id={{row['orphan_id']}}" class="btn btn-success">request to adopt</a></td> -->
+		<td><a href="SponsorOrphan?orphan_id={{row['orphan_id']}}" class="btn btn-warning">sponsor orphan</a></td>
+	</tr>
+	{%endfor%}
+</table>
+
+
+
+{%include'publicfooter.html'%}

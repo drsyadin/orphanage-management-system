@@ -1,0 +1,28 @@
+{%include'OrphanageHeader.html'%}
+<h1 style="color: white">TEACHING REQUESTS</h1>
+<table class="table" style="width: 1000px;color: white">
+	<tr>
+		<th>user name</th>
+		<th>Description</th>
+		<th>Date and Time</th>
+		<th>STATUS</th>
+	</tr>
+	{%for row in data['or']%}
+	<tr>
+		<td>{{row['uname']}}</td>
+		<td>{{row['description']}}</td>
+		<td>{{row['datetime']}}</td>
+		{%if row['status']=="pending"%}
+<td><a href="?action=accept&tid={{row['teaching_req_id']}}" class="btn btn-success">Accept</a></td>
+		<td><a href="?action=deny&tid={{row['teaching_req_id']}}" class="btn btn-danger">Deny</a></td>
+		{%else%}
+		<td>{{row['status']}}</td>
+{%endif%}
+	</tr>
+	{%endfor%}
+
+</table>
+
+
+
+{%include'publicfooter.html'%}

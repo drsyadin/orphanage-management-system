@@ -1,0 +1,23 @@
+{%include'AdminHeader.html'%}
+<H1 style="color: white">ADOPTION REQUESTS</H1>
+<table class="table" style="width: 500px;color: white">
+	<tr>
+		<th>user</th>
+		<th>Description</th>
+		<th>Date and Time</th>
+		<th>orphan</th>
+	</tr>
+	{%for row in data['or']%}
+	<tr>
+		<td>{{row['uname']}}</td>
+		<td>{{row['description']}}</td>
+		<td>{{row['datetime']}}</td>
+		<td>{{row['oname']}}</td>
+
+
+	</tr>
+	{%endfor%}
+
+
+</table>
+{%include'publicfooter.html'%}

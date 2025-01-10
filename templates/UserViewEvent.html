@@ -1,0 +1,27 @@
+{% include'UserHeader.html' %}
+<h3>EVENT DETAILS</h3>
+<table class="table" style="width: 950px;color: white">
+	<tr>
+		
+		<th>Event Title</th>
+		<th>Venue</th>
+		<th>Date and Time</th>
+		<th>Chief Guest</th>
+		<th>Description</th>
+				
+	</tr>
+	{%for row in data['or']%}
+	<tr>
+		<td>{{row['event_title']}}</td>
+		<td>{{row['venue']}}</td>
+		<td>{{row['date_and_time']}}</td>
+		<td>{{row['chief_guest']}}</td>
+		<td>{{row['description']}}</td>
+
+		
+	</tr>
+	{%endfor%}
+</table>
+	</form>
+
+{%include'publicfooter.html'%}

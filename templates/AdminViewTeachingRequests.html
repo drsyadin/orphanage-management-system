@@ -1,0 +1,21 @@
+{%include'AdminHeader.html'%}
+<h1 style="color: white">TEACHING REQUESTS</h1>
+<table class="table" style="width: 500px;color: white" >
+	<tr>
+		<th>user name</th>
+		<th>Description</th>
+		<th>Date and Time</th>
+	</tr>
+	{%for row in data['or']%}
+	<tr>
+		<td>{{row['uname']}}</td>
+		<td>{{row['description']}}</td>
+		<td>{{row['datetime']}}</td>
+	</tr>
+	{%endfor%}
+
+</table>
+
+
+
+{%include'publicfooter.html'%}

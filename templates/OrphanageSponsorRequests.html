@@ -1,0 +1,30 @@
+{%include'OrphanageHeader.html'%}
+<h1 style="color: white">Sponsor Requests</h1>
+<table class="table" style="width: 1000px;color: white">
+	<tr>
+		<th>USER</th>
+		<th>ORPHAN</th>
+		<th>CONTRIBUTION DETAILS</th>
+		<th>DATE AND TIME</th>
+		<th>STATUS</th>
+	</tr>
+	{%for row in data['or']%}
+	<tr>
+		<td>{{row['uname']}}</td>
+		<td>{{row['oname']}}</td>
+		<td>{{row['contribution_details']}}</td>
+		<td>{{row['datetime']}}</td>
+		
+		{%if row['status']=="pending"%}
+<td><a href="?action=accept&sid={{row['sponsor_req_id']}}" class="btn btn-success">Accept</a></td>
+		<td><a href="?action=deny&sid={{row['sponsor_req_id']}}" class="btn btn-danger">Deny</a></td>
+		{%else%}
+		<td>{{row['status']}}</td>
+{%endif%}
+
+	</tr>
+	{%endfor%}
+</table>
+
+
+{%include'publicfooter.html'%}

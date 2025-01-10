@@ -1,0 +1,18 @@
+{% include'publicheader.html' %}
+<h1 style="color: white">TESTIMONIALS</h1>
+<table>
+	<tr>
+		<th>orphanage name</th>
+		<th>Description</th>
+		<th>Date and Time</th>
+	</tr>
+	{%for row in data['or']%}
+	<tr>
+		<td>{{row['orphanage_name']}}</td>
+		<td>{{row['description']}}</td>
+		<td>{{row['datetime']}}</td>
+	</tr>
+	{%endfor%}
+
+</table>
+{%include'publicfooter.html'%}

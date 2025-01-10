@@ -1,0 +1,18 @@
+{%include'UserHeader.html'%}
+<H1 style="color: white">VIEW ADOPTION REQUESTS</H1>
+<table class="table" style="width: 1000px;color: white">
+	<tr>
+		
+		<th>Description</th>
+		
+		<th>STATUS</th>
+	</tr>
+{%for row in data['or']%}
+	<tr>
+		
+		<td>{{row['description']}}</td>
+		<td>{{row['status']}}</td>
+</tr>
+	{%endfor%}
+</table>
+{%include'publicfooter.html'%}

@@ -1,0 +1,45 @@
+{%include'UserHeader.html'%}
+<center>
+	<form method="post">
+	<h3>ADOPTION REQUEST</h3>
+	<table  class="table" style="width: 1000px;color: white">
+		<tr>
+			<th>AGE:</th>
+			<td>
+				<select id="categoryDropdown" onchange="navigateToSubcategory()">
+					<option>select</option>
+					<option value="5" >Under 5</option>
+					<option value="10">Under 10</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	<table class="table" style="width: 1000px;color: white" >
+		<tr>
+			<th>Orphan</th>
+			<td>
+				<select class="form-control" name="org">
+					{%  for i in data['view'] %}
+					<option value="{{i['orphan_id']}}">{{i['first_name']}} {{i['last_name']}}</option>
+					{% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th>Description</th>
+			<td><input type="text" name="des" required="" class="form-control"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" name="SendAdoptionRequest" value="send" class="btn btn-success"></td>
+		</tr>
+
+	</table>
+        <script>
+            function navigateToSubcategory() {
+                var selectedCategoryId = document.getElementById("categoryDropdown").value;
+                window.location.href = "SendAdoptionRequest?action=filter&cid=" + selectedCategoryId;
+            }
+        </script>
+</form>
+</center>
+{%include'publicfooter.html'%}

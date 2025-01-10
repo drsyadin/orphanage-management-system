@@ -1,0 +1,156 @@
+{%include'OrphanageHeader.html'%}
+<center>
+	<form method="post" enctype="multipart/form-data">
+
+
+
+
+
+	{%if data['updates']%}
+
+	<h3>UPDATE ORPHAN DETAILS</h3>
+		<table class="table" style="width: 500px;color: white">
+			<tr>
+				<th>First Name</th>
+				<td><input type="text" name="fn" class="form-control" value="{{data['updates'][0]['first_name']}}"></td>
+			</tr>
+			<tr>
+				<th>Last Name</th>
+				<td><input type="text" name="ln" class="form-control" value="{{data['updates'][0]['last_name']}}"></td>
+			</tr>
+			<tr>
+				<th>Date of Birth</th>
+				<td><input type="date" name="db" class="form-control" value="{{data['updates'][0]['dob']}}"></td>
+			</tr>
+			<tr>
+				<th>Age</th>
+				<td><input type="text" name="age" class="form-control" value="{{data['updates'][0]['orphan_image']}}"></td>
+			</tr>
+			<tr>
+				<th>Gender</th>
+				<td><input type="text" name="gd" class="form-control" value="{{data['updates'][0]['gender']}}"></td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td><input type="text" name="ds" class="form-control" value="{{data['updates'][0]['about_description']}}"></td>
+			</tr>
+			<tr>
+			<td align="center" colspan="2"><input type="submit" name="update" value="UPDATE" class="btn btn-success"></td>
+			</tr>
+			
+		</table>
+
+
+
+	{%else%}
+
+
+
+	<h3>ORPHAN DETAILS</h3>
+		<table class="table" style="width: 500px;color: white">
+			<tr>
+				<th>First Name</th>
+				<td><input type="text" name="fn" pattern="['a-zA-z ']+$" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Last Name</th>
+				<td><input type="text" name="ln" pattern="['a-zA-z ']+$" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Date of Birth</th>
+				<td><input type="date" name="db" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Age</th>
+				<td><input type="text" name="age" class="form-control" ></td>
+			</tr>
+			<tr>
+				<th>Gender</th>
+				<td><input type="radio" name="gd" required="" value="male">male
+<input type="radio" name="gd" required="" value="female">female
+				</td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td><input type="text" name="ds" required="" class="form-control"></td>
+			</tr>
+			<tr>
+			<td align="center" colspan="2"><input type="submit" name="OrphanageOrphanDetails" value="SUBMIT" class="btn btn-success"></td>
+			</tr>
+			
+		</table>
+
+
+	{%endif%}
+
+	</form>
+
+
+
+	<form method="post" enctype="multipart/form-data">
+
+		
+
+		<h1 style="color: white">ORPHANS</h1>
+
+
+<table>
+	<tr><td><input type="text" name="sn" class="form-control" placeholder="SEARCH HERE">
+		<td><input type="submit" name="search" value="SEARCH" class="btn btn-warning"></td>
+	</td></tr>
+</table>
+
+<table class="table" style="width: 1000px;color: white">
+	<tr>
+		
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Date Of Birth</th>
+		<th>Gender</th>
+		<th>Age</th>
+		<th>Description</th>
+	</tr>
+	{%if data['search']%}
+	{%for row in data['search']%}
+	<tr>
+		
+		<td>{{row['first_name']}}</td>
+		<td>{{row['last_name']}}</td>
+		<td>{{row['dob']}}</td>
+		<td>{{row['gender']}}</td>
+		<td>{{row['orphan_image']}}</td>
+		<td>{{row['about_description']}}</td>
+		<td><a href="?action=update&oid={{row['orphan_id']}}" class="btn btn-primary">update</a></td>
+		<td><a href="?action=delete&oid={{row['orphan_id']}}" class="btn btn-danger">delete</a></td>
+	</tr>
+	{%endfor%}
+
+	{%else%}
+
+	{%for row in data['or']%}
+	<tr>
+		
+		<td>{{row['first_name']}}</td>
+		<td>{{row['last_name']}}</td>
+		<td>{{row['dob']}}</td>
+		<td>{{row['gender']}}</td>
+		<td>{{row['orphan_image']}}</td>
+		<td>{{row['about_description']}}</td>
+		<td><a href="?action=update&oid={{row['orphan_id']}}" class="btn btn-primary">update</a></td>
+
+		<td><a href="?action=delete&oid={{row['orphan_id']}}" class="btn btn-danger">delete</a></td>
+	</tr>
+	{%endfor%}
+
+
+	{%endif%}
+
+
+</table>
+
+
+	</form>
+</center>
+
+
+{%include'publicfooter.html'%}

@@ -1,0 +1,43 @@
+{%include'OrphanageHeader.html'%}
+<center>
+	<form method="post">
+		<h3>ORPHANAGE REQUIREMENTS</h3>
+		<table class="table" style="width: 500px;color: white">
+			<tr>
+				<th>Description</th>
+				<td><input type="text" name="ds" required="" class="form-control"></td>
+			</tr>
+
+			<tr>
+			<td align="center" colspan="2"><input type="submit" name="OrphanageRequirements" value="Submit" class="btn btn-success"></td>
+			</tr>
+		</table>
+		
+	</form>
+</center>
+<h3>REQUIREMENTS</h3>
+<table style="width: 950px;color: white">
+	<tr>
+		<th>REQUIREMENTS</th>
+		<th>DATE AND TIME</th>
+		<th>STATUS</th>
+	</tr>
+	{%for row in data['or']%}
+	<tr>
+		<td>{{row['description']}}</td>
+		<td>{{row['datetime']}}</td>
+
+		{%if row['status']=="accept"%}
+		<td><a href="AddDonation?orphanage_id={{row['orphanage_id']}}" class="btn btn-success">view donations</a></td>
+		{%else%}
+		<td>{{row['status']}}</td>
+		{%endif%}
+		<td><a href="?action=delete&rid={{row['requirement_id']}}" class="btn btn-danger">delete</a></td>
+	</tr>
+	{%endfor%}
+
+
+</table>
+
+
+{%include'publicfooter.html'%}

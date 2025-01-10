@@ -1,0 +1,59 @@
+{%include'publicheader.html'%}
+<center>
+	<form method="post">
+	<h3>USER REGISTRATION</h3>
+	<table  class="table" style="width: 500px;color: white">
+		<tr>
+			<th>First Name</th>
+			<td><input type="text" name="fn" pattern="['a-zA-Z ']+$" required="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Last Name</th>
+			<td><input type="text" name="ln" pattern="['a-zA-z ']+$" required="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Gender</th>
+			<td><input type="radio" name="gen" required="" value="male">male
+<input type="radio" name="gen" required="" value="female">female
+			</td>
+		</tr>
+		<tr>
+			<th>House Name</th>
+			<td><input type="text" name="hname" required="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Place</th>
+			<td><input type="text" name="pl" required="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Phone</th>
+			<td><input type="text" pattern="[0-9]{10}" required="" name="pho" class="form-control"></td>
+		</tr>
+		<!--<tr>
+			<th>Email</th>
+			<td><input type="email" name="eml" required="" class="form-control"></td>
+		</tr>-->
+		<tr>
+			<th>Email</th>
+			<td><input type="email" name="eml" required="" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Occupation</th>
+			<td><input type="text" name="occu" required="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>user name</th>
+			<td><input type="text" name="names" required="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>password</th>
+			<td><input type="password" name="pwd" required="" class="form-control"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" name="userRegistration" value="REGISTER" class="btn btn-success"></td>
+		</tr>
+
+	</table>
+	</form>
+</center>
+{%include'publicfooter.html'%}

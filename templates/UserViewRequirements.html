@@ -1,0 +1,29 @@
+{% include'UserHeader.html' %}
+<H1 style="color: white">REQUIREMENTS</H1>
+<table class="table" style="width: 1000px;color: white">
+	<tr>
+		<th>Requirements</th>
+		<th>Date and Time</th>
+	</tr>
+	{%for row in data['or']%}
+	<tr>
+		<td>{{row['description']}}</td>
+		<td>{{row['datetime']}}</td>
+		
+		{%if row['status']=="pending"%}
+<td><a href="?action=accept&sid={{row['requirement_id']}}" class="btn btn-success">Accept</a></td>
+		<td><a href="?action=deny&sid={{row['requirement_id']}}" class="btn btn-danger">Deny</a></td>
+		{%elif row['status']=="accept"%}
+		<td><a href="SendDonation?requirement_id={{row['requirement_id']}}" class="btn btn-success">send donation</a></td>
+		{%else%}
+
+		<td>{{row['status']}}</td>
+{%endif%}
+
+
+	</tr>
+	{%endfor%}
+
+</table>
+
+{%include'publicfooter.html'%}
